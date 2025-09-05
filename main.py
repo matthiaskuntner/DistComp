@@ -10,12 +10,8 @@ class SimpleSupplier(su.WorkSupplier):
             self.workSupply.append(i)
     
     def getWorkPackage(self):
-        tmpList = []
-        for i in range(100):
-            try:
-                tmpList.append(self.workSupply.pop(0))
-            except IndexError:
-                pass
+        tmpList = self.workSupply[0:100]
+        self.workSupply = self.workSupply[100:]
         return tmpList
 
 class SimpleAggregator(su.WorkAggregator):
