@@ -45,7 +45,7 @@ class DistroServer:
         self._workloadConverter = workloadConverter
         self._workResultConverter = workResultConverter
         soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        soc.bind(("127.0.0.1",port))
+        soc.bind(("0.0.0.0",port))
         soc.listen()
         serverThread = threading.Thread(target=self._listenForConnections, args=[soc])
         serverThread.start()
